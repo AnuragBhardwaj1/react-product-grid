@@ -8,6 +8,9 @@ var productJson = require("./data/product.json");
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // TODO: Another way to organize state might be to color: { visible: ['Yellow', 'Red'], hidden: ['Green', 'Blue']}
+    //  This will make showing and hiding trivial and eliminate loops in searching everytime a filter is clicked.
+    // TODO: If we are using same constants at two places, you may extract them out in a separate constants file and import them everywhere.
     this.state = {
       data: productJson,
       color: { Yellow: false, Red: false, Green: false, Blue: false },
@@ -29,6 +32,7 @@ class App extends React.Component {
     this.sold_out_handler = this.sold_out_handler.bind(this);
   }
 
+  // TODO: The logic may be extracted out in a toggle function
   color_handler(e) {
     var color = this.state.color;
     var new_state = e.target.value;
@@ -49,6 +53,7 @@ class App extends React.Component {
   }
 
   search_query_handler(e) {
+    // TODO: Are we using this search_query somewhere? Its also giving warning.
     var search_query = this.state.search_query;
     var new_state = e.target.value;
     this.setState({ search_query: new_state });

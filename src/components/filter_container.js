@@ -3,6 +3,7 @@ import React from "react";
 class FilterContainer extends React.Component {
   constructor(props) {
     super(props);
+    // TODO: There should be another entry in here for soldOut.
     this.state = {
       color: ["Yellow", "Red", "Green", "Blue"],
       brand: ["Brand A", "Brand B", "Brand C", "Brand D"]
@@ -10,6 +11,11 @@ class FilterContainer extends React.Component {
   }
 
   render() {
+    // TODO: Check map vs forEach iterator.
+    // TODO: Instead of using generic names like +handler+, use as much
+    //  context-specific names as you can.
+    // TODO: No need to treat filter categories like brand, colors specifically.
+    //  Within filter, apply OR, across filters, apply AND.
     var color_filters = this.state.color.map(color => {
       return (
         <Filter name={color} value={color} handler={this.props.color_handler} />

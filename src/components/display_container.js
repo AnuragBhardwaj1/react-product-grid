@@ -7,6 +7,11 @@ class DisplayContainer extends React.Component {
     this.can_be_displayed = this.can_be_displayed.bind(this);
   }
 
+  // TODO: Instead of this, treat them as three categories:
+  //  Brand, color and sold out.
+  //  Apply +OR+ within filters of a particular query.
+  //  Apply +AND+ across categories.
+
   can_be_displayed(object) {
     var visible_colors = this.props.visible_colors;
     var visible_brands = this.props.visible_brands;
